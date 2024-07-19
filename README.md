@@ -1,4 +1,4 @@
-# chill-css: a chill css framework 🧊
+# chill-css: A chill CSS framework 🧊
 
 Chill is a minimalist CSS framework that assumes that you have the ability to make custom scoped CSS and set CSS variables.
 
