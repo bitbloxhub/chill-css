@@ -1,7 +1,0 @@
-{
-	"name": "@chill-css/chill",
-	"version": "0.1.0",
-	"exports": {
-		".": "./dist/chill.css"
-	}
-}
