@@ -11,6 +11,7 @@
 	"exports": {
 		".": "./dist/chill.css"
 	},
+	"license": "ISC",
 	"scripts": {
 		"build": "tsup",
 		"clean": "rimraf dist",
