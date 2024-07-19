@@ -1,0 +1,207 @@
+/*
+	a chill css framework.
+	reset from https://www.joshwcomeau.com/css/custom-css-reset/
+	line-height from https://kittygiraudel.com/2020/05/18/using-calc-to-figure-out-optimal-line-height/
+	SPDX-License-Identifier: ISC
+*/
+
+@import "@catppuccin/palette/css/catppuccin.css";
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: var(--chill-margin);
+}
+
+body {
+	line-height: calc(2px + 2ex + 2px);
+	-webkit-font-smoothing: antialiased;
+}
+
+.legacy-lh {
+	line-height: 1.5;
+}
+
+/* prettier-ignore */
+img, picture, video, canvas, svg {
+	display: block;
+	max-width: 100%;
+}
+
+/* prettier-ignore */
+input, button, textarea, select {
+	font: inherit;
+}
+
+/* prettier-ignore */
+p, h1, h2, h3, h4, h5, h6 {
+	overflow-wrap: break-word;
+}
+
+/* end reset, begin styling */
+
+:root {
+	/* colors */
+	--chill-bg-color: var(--ctp-mocha-base);
+	--chill-text-color: var(--ctp-mocha-text);
+	--chill-subhead-color: var(--ctp-mocha-subtext0);
+	--chill-label-color: var(--ctp-mocha-subtext1);
+	--chill-secondary-pane0-color: var(--ctp-mocha-crust);
+	--chill-secondary-pane1-color: var(--ctp-mocha-mantle);
+	--chill-surface0-color: var(--ctp-mocha-surface0);
+	--chill-surface1-color: var(--ctp-mocha-surface1);
+	--chill-surface2-color: var(--ctp-mocha-surface2);
+	--chill-link-color: var(--ctp-mocha-blue);
+	--chill-link-color-visited: var(--ctp-latte-mauve);
+	--chill-success-color: var(--ctp-mocha-green);
+	--chill-warning-color: var(--ctp-mocha-yellow);
+	--chill-error-color: var(--ctp-mocha-red);
+	--chill-pill-color: var(--ctp-mocha-blue);
+	--chill-selection-color: var(--ctp-mocha-overlay2);
+	--chill-cursor-color: var(--ctp-mocha-rosewater);
+	--chill-accent-color: var(--ctp-mocha-teal);
+	/* formating */
+	--chill-margin: 0;
+	--chill-sans-font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		"Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+		"Segoe UI Symbol", "Noto Color Emoji";
+	--chill-mono-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+		"Courier New", monospace;
+	--chill-tab-size: 4;
+	--chill-flex-display: inline;
+	--chill-flex-direction: row;
+	--chill-flex-wrap: nowrap;
+	--chill-flex-basis: auto;
+	--chill-flex-grow: 0;
+	--chill-flex-shrink: 0;
+	--chill-flex-align: normal;
+	--chill-flex-justify: normal;
+	--chill-grid: initial;
+	--chill-grid-row: auto;
+	--chill-grid-column: auto;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--chill-bg-color: var(--ctp-latte-base);
+		--chill-text-color: var(--ctp-latte-text);
+		--chill-subhead-color: var(--ctp-latte-subtext0);
+		--chill-label-color: var(--ctp-latte-subtext1);
+		--chill-secondary-pane0-color: var(--ctp-latte-crust);
+		--chill-secondary-pane1-color: var(--ctp-latte-mantle);
+		--chill-surface0-color: var(--ctp-latte-surface0);
+		--chill-surface1-color: var(--ctp-latte-surface1);
+		--chill-surface2-color: var(--ctp-latte-surface2);
+		--chill-link-color: var(--ctp-latte-blue);
+		--chill-link-color-visited: var(--ctp-latte-mauve);
+		--chill-success-color: var(--ctp-latte-green);
+		--chill-warning-color: var(--ctp-latte-yellow);
+		--chill-error-color: var(--ctp-latte-red);
+		--chill-pill-color: var(--ctp-latte-blue);
+		--chill-selection-color: var(--ctp-latte-overlay2);
+		--chill-cursor-color: var(--ctp-latte-rosewater);
+		--chill-accent-color: var(--ctp-latte-teal);
+	}
+}
+
+body {
+	font-family: var(--chill-sans-font);
+	color: var(--chill-text-color);
+	background-color: var(--chill-bg-color);
+	tab-size: var(--chill-tab-size);
+}
+
+/* typography */
+code,
+kbd,
+pre,
+samp,
+tt {
+	font-family: var(--chill-mono-font);
+	background-color: var(--chill-secondary-pane0-color);
+}
+
+*::selection {
+	background-color: var(--chill-selection-color);
+}
+
+/* prettier-ignore */
+h3, h4, h5, h6 {
+	color: var(--chill-subhead-color);
+}
+
+:where(a:not([role="button"])),
+*[role="link"] {
+	color: var(--chill-link-color);
+	&:visited {
+		color: var(--chill-link-color-visited);
+	}
+}
+
+.monospaced {
+	font-family: var(--chill-mono-font);
+}
+
+/* forms */
+
+input,
+textarea,
+select,
+*[contenteditable="true"] {
+	color: inherit;
+	caret-color: var(--chill-cursor-color);
+	border-width: var(--chill-border-width, 2px);
+	border-color: var(--chill-border-color, var(--chill-surface1-color));
+	border-style: var(--chill-border-style, solid);
+	border-radius: var(--chill-border-radius, 4px);
+	background-color: var(--chill-background-color, var(--chill-surface0-color));
+}
+
+button,
+select {
+	border-width: var(--chill-border-width, 2px);
+	border-color: var(--chill-border-color, var(--chill-surface1-color));
+	border-style: var(--chill-border-style, solid);
+	border-radius: var(--chill-border-radius, 4px);
+	background-color: var(--chill-background-color, var(--chill-surface0-color));
+	text-align: center;
+	display: inline-block;
+	color: var(--chill-text-color);
+	&:focus,
+	&:hover {
+		background-color: var(--chill-background-color-focus, var(--chill-surface1-color));
+		border-color: var(--chill-border-color-focus, var(--chill-surface2-color));
+	}
+	&:active {
+		background-color: var(--chill-background-color-pressed, var(--chill-surface2-color));
+		border-color: var(--chill-border-color-pressed, var(--chill-surface2-color));
+	}
+}
+
+/* layout */
+
+.flex {
+	display: var(--chill-flex-display) flex;
+	flex-flow: var(--chill-flex-direction) var(--chill-flex-wrap);
+	align-items: var(--chill-flex-align);
+	justify-items: var(--chill-flex-justify);
+	* {
+		flex-basis: var(--chill-flex-basis);
+		flex-grow: var(--chill-flex-grow);
+		flex-shrink: var(--chill-flex-shrink);
+	}
+}
+
+.grid {
+	display: grid;
+	grid: var(--chill-grid);
+	gap: var(--chill-grid-gap);
+	* {
+		grid-row: var(--chill-grid-row);
+		grid-column: var(--chill-grid-column);
+	}
+}
