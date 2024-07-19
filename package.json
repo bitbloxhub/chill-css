@@ -15,7 +15,8 @@
 		"build": "tsup",
 		"clean": "rimraf dist",
 		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"prepack": "rimraf dist && tsup"
 	},
 	"devDependencies": {
 		"@microsoft/api-extractor": "^7.47.2",
